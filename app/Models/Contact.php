@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Contact extends Model
 {
@@ -14,5 +15,10 @@ class Contact extends Model
     public $timestamps = false;
     //cast DOB to datetime
     protected $casts = ['Date_of_Birth' => 'datetime'];
+
+    public function donations(): HasMany
+    {
+        return $this->hasMany(Donation::class,'Donor_ID', 'Donor_ID');
+    }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Donation extends Model
 {
@@ -14,4 +15,10 @@ class Donation extends Model
     public $timestamps = false;
     //casts
     protected $casts = ['Donation_Date' => 'datetime'];
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(Contact::class,'Donor_ID','Donor_ID');
+    }
+
 }

@@ -21,7 +21,7 @@
             @foreach ($donations as $donation)
                 <tr>
                     <td>{{ $donation->Donation_ID }}</td>
-                    <td>{{ $donation->Donor_ID }}</td>
+                    <td>{{ $donation->contact?->First_Name }}</td>
                     <td>${{ number_format($donation->Donation_Amount, 2) }}</td>
                     <td>{{ $donation->Donation_Date?->format('M j, Y') }}</td>
                 </tr>
