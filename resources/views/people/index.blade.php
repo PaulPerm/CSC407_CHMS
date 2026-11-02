@@ -22,7 +22,7 @@
         <tbody>
             @foreach ($contacts as $contact)
                 <tr>
-                    <td>{{ $contact->Last_Name }}, {{ $contact->First_Name }}</td>
+                    <td><a href="{{ route('people.show', $contact) }}">{{ $contact->Last_Name }}, {{ $contact->First_Name }}</a></td>
                     <td>{{ $contact->Date_of_Birth?->format('M j, Y') }}</td>
                     <td>{{ $contact->Gender }}</td>
                     <td>{{ $contact->Contact_Status }}</td>

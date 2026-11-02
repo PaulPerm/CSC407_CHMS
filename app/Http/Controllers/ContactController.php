@@ -13,4 +13,8 @@ class ContactController extends Controller
 
         return view('people.index', compact('contacts'));
     }
+    public function show(Contact $contact)
+    {
+        return view('people.show', compact('contact'));
+    }
 }

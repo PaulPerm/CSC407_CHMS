@@ -13,5 +13,7 @@ Route::get('/people', [ContactController::class, 'index'])->name('people.index')
 
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
-Route::get('/donation', [DonationController::class, 'index'])->name('donation.index');
+Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
+
+Route::get('/people/{contact}', [ContactController::class, 'show'])->name('people.show');
 

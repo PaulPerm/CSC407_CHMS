@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Contact extends Model
 {
@@ -19,6 +20,11 @@ class Contact extends Model
     public function donations(): HasMany
     {
         return $this->hasMany(Donation::class,'Donor_ID', 'Donor_ID');
+    }
+
+    public function events(): BelongsToMany
+    {
+        return $this->belongsToMany(Event::class,'event_participants','Contact_ID','Event_ID');
     }
 
 }
