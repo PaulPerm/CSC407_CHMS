@@ -36,6 +36,7 @@
             @empty
                 <tr><td colspan="3">No events.</td></tr>
             @endforelse
+
         </tbody>
     </table>
 

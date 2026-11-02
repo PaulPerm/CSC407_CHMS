@@ -17,3 +17,6 @@ Route::get('/donations', [DonationController::class, 'index'])->name('donations.
 
 Route::get('/people/{contact}', [ContactController::class, 'show'])->name('people.show');
 
+Route::get('/people/{contact}/donations/create', [DonationController::class, 'create'])->name('donations.create');
+
+Route::post('/people/{contact}/donations', [DonationController::class, 'store'])->name('donations.store');

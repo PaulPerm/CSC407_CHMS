@@ -16,6 +16,8 @@ class Donation extends Model
     //casts
     protected $casts = ['Donation_Date' => 'datetime'];
 
+    protected $fillable = ['Donation_Amount', 'Donation_Date'];
+
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class,'Donor_ID','Donor_ID');
