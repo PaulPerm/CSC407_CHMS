@@ -3,8 +3,9 @@
 @section('title', $contact->First_Name . ' ' . $contact->Last_Name)
 
 @section('content')
-    <a href="{{ route('people.index') }}">← Back to People</a>
-
+    <div class="mb-3">
+        <a href="{{ route('people.index') }}" class="btn btn-sm btn-outline-dark">← Back to People</a>
+    </div>
     <h1>{{ $contact->First_Name }} {{ $contact->Last_Name }}</h1>
 
     <p>Date of Birth: {{ $contact->Date_of_Birth?->format('M j, Y') }}</p>

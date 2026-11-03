@@ -3,7 +3,9 @@
 @section('title', 'Register for Event')
 
 @section('content')
-    <a href="{{ route('people.index') }}">← Back to People</a>
+    <div class="mb-3">
+        <a href="{{ route('people.index') }}" class="btn btn-sm btn-outline-dark">← Back to People</a>
+    </div>
 
     <h1>Register {{ $contact->First_Name }} {{ $contact->Last_Name }} for an Event</h1>
 

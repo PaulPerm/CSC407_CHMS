@@ -21,7 +21,7 @@
         <tbody>
             @foreach ($contacts as $contact)
                 <tr>
-                    <td><a href="{{ route('people.show', $contact) }}">{{ $contact->Last_Name }}, {{ $contact->First_Name }}</a></td>
+                      <td><a href="{{ route('people.show', $contact) }}" class="link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{{ $contact->Last_Name }}, {{ $contact->First_Name }}</a></td>
                     <td>
                         <a href="{{ route('donations.create', $contact) }}" class="btn btn-sm btn-outline-primary">Donate</a>
                         <a href="{{ route('participants.create', $contact) }}" class="btn btn-sm btn-outline-secondary">Register</a>
