@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $contact->First_Name }} {{ $contact->Last_Name }}</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', $contact->First_Name . ' ' . $contact->Last_Name)
+
+@section('content')
     <a href="{{ route('people.index') }}">← Back to People</a>
 
     <h1>{{ $contact->First_Name }} {{ $contact->Last_Name }}</h1>
@@ -18,7 +15,7 @@
     <p>Phone: {{ $contact->Mobile_Phone }}</p>
 
     <h2>Event History</h2>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Event</th>
@@ -36,12 +33,11 @@
             @empty
                 <tr><td colspan="3">No events.</td></tr>
             @endforelse
-
         </tbody>
     </table>
 
     <h2>Donation History</h2>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Date</th>
@@ -59,5 +55,4 @@
             @endforelse
         </tbody>
     </table>
-</body>
-</html>
+@endsection

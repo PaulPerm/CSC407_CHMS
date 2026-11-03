@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Events')
+
+@section('content')
     <h1>Events</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Title</th>
@@ -28,5 +25,5 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection
+
