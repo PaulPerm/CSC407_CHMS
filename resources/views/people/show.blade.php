@@ -14,45 +14,52 @@
     <p>Email: {{ $contact->Email_address }}</p>
     <p>Phone: {{ $contact->Mobile_Phone }}</p>
 
-    <h2>Event History</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Event</th>
-                <th>Start</th>
-                <th>End</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($contact->events as $event)
-                <tr>
-                    <td>{{ $event->Event_Title }}</td>
-                    <td>{{ $event->Event_Start_Date?->format('M j, Y') }}</td>
-                    <td>{{ $event->Event_End_Date?->format('M j, Y') }}</td>
-                </tr>
-            @empty
-                <tr><td colspan="3">No events.</td></tr>
-            @endforelse
-        </tbody>
-    </table>
 
-    <h2>Donation History</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($contact->donations as $donation)
+    <details open>
+    <summary><h2 class="d-inline">Event History</h2></summary>
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>{{ $donation->Donation_Date?->format('M j, Y') }}</td>
-                    <td>${{ number_format($donation->Donation_Amount, 2) }}</td>
+                    <th>Event</th>
+                    <th>Start</th>
+                    <th>End</th>
                 </tr>
-            @empty
-                <tr><td colspan="2">No donations.</td></tr>
-            @endforelse
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @forelse ($contact->events as $event)
+                    <tr>
+                        <td>{{ $event->Event_Title }}</td>
+                        <td>{{ $event->Event_Start_Date?->format('M j, Y') }}</td>
+                        <td>{{ $event->Event_End_Date?->format('M j, Y') }}</td>
+                    </tr>
+                @empty
+                    <tr><td colspan="3">No events.</td></tr>
+                @endforelse
+            </tbody>
+        </table>
+    </details>
+
+
+
+    <details open>
+        <summary><h2 class="d-inline">Donation History</h2></summary>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($contact->donations as $donation)
+                    <tr>
+                        <td>{{ $donation->Donation_Date?->format('M j, Y') }}</td>
+                        <td>${{ number_format($donation->Donation_Amount, 2) }}</td>
+                    </tr>
+                @empty
+                    <tr><td colspan="2">No donations.</td></tr>
+                @endforelse
+            </tbody>
+        </table>
+    </details>
 @endsection

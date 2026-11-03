@@ -23,4 +23,5 @@ class Donation extends Model
         return $this->belongsTo(Contact::class,'Donor_ID','Donor_ID');
     }
 
+
 }
