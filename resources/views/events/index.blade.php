@@ -4,8 +4,9 @@
 
 @section('content')
     <h1>Events</h1>
+    <input type="text" id="search" class="form-control mb-3" placeholder="Search...">
 
-    <table class="table table-striped">
+    <table class="table table-striped" id="event-table">
         <thead>
             <tr>
                 <th>Title</th>
@@ -26,4 +27,27 @@
         </tbody>
     </table>
 @endsection
+
+@push('scripts')
+    <script>
+        const search = document.getElementById('search');
+        const rows = document.querySelectorAll('#event-table tbody tr');
+
+        search.addEventListener('input', () => {
+            const term = search.value.toLowerCase();
+
+
+            rows.forEach(row=>{
+                const current_row = row.textContent.toLowerCase();
+                if(current_row.includes(term)){
+                    row.style.display ='';
+                }
+                else{
+                    row.style.display = 'none';
+                }
+
+            });
+        });
+    </script>
+@endpush
 
